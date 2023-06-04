@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+<div class="article-wrapper">
+    <div class="title">{{ .Title }}</div>
+    <div class="info">
+        <span>{{ .Date.Format "January 2, 2006" }}</span>
+        <span>• {{ if eq (div (len (split .Content " ")) 200 | int) 0 }}30s{{ else }}{{ div (len (split .Content " ")) 200 | int | printf "%dm" }}{{ end }}</span>
+        {{ if .Params.author }}
+        <span>• {{ .Params.author }}</span>
+        {{ end }}
+    </div>
+
+    <div class="article">
+        {{ .Content }}
+    </div>
+</div>
+
+{{ end }}

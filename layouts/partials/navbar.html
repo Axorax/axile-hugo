@@ -1,0 +1,32 @@
+<nav class="">
+  <a href="{{ .Site.BaseURL }}" id="nav-name">{{ .Site.Title }}</a>
+  <button class="nav-menu-close" onclick="navMenuToggle();">Close</button>
+  <ul id="nav-items">
+    <li>
+      <a href="{{ .Site.BaseURL }}/tags/"><button>Tags</button></a>
+    </li>
+    {{ if .Site.Params.navbar }}
+      <li><button id="nav-more">More</button></li>
+      <div class="nav-more-content" style="display: none">
+        {{ range $key, $value := .Site.Params.navbar }}
+          <a href="{{ $value }}"><button>{{ $key }}</button></a>
+        {{ end }}
+    {{ end }}    
+    </div>
+  </ul>
+  <ul class="right">
+    <li><button id="nav-menu" onclick="navMenuToggle();">menu</button></li>
+    {{ if .Site.Params.navbarButton }}
+    {{ range $key, $value := .Site.Params.navbarButton }}
+      <li>
+        <a href="{{ $value }}" target="_blank">
+          <button id="nav-support">{{ $key }}</button>
+        </a>
+      </li>
+    {{ end }}
+  {{ end }}
+  
+  </ul>
+</nav>
+
+<div class="nav-search-overlay" style="display: none"></div>

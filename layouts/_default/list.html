@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="container">
+    {{ range .Pages }}
+        <a href="{{ .Permalink }}">
+            <div class="item {{ if .Params.thumbnail }}image{{ end }}">
+            <p>{{ .Title }}</p>
+            {{ if .Params.thumbnail }}
+            <div class="image-wrapper">
+                <img src="{{ .Params.thumbnail }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+            </div>
+            {{ end }}
+            <div class="info">
+                <span>{{ .Date.Format "January 2, 2006" }}</span>
+                <span>• {{ if eq (div (len (split .Content " ")) 200 | int) 0 }}30s{{ else }}{{ div (len (split .Content " ")) 200 | int | printf "%dm" }}{{ end }}</span>
+                {{ if .Params.author }}
+                <span>• {{ .Params.author }}</span>
+                {{ end }}
+            </div>
+            </div>
+        </a>
+    {{ end }}
+</div>
+{{ end }}

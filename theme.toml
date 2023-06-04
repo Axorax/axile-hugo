@@ -1,0 +1,14 @@
+name = "Axile"
+license = "MIT"
+licenselink = "https://github.com/Axorax/axile-hugo/blob/master/LICENSE"
+description = "Simple modern Hugo theme"
+homepage = "http://example.com/"
+tags = ["dark", "responsive", "minimal", "blog"]
+features = []
+min_version = "0.41.0"
+
+demosite = "https://axile.netlify.app/"
+
+[author]
+  name = "Axorax"
+  homepage = "https://axorax.github.io/"
